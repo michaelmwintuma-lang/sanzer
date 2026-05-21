@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Our garage door automation service improves convenience and access control for residential and commercial garages with smooth motorized operation.',
             features: ['Automatic opening and closing systems', 'Remote access control options', 'Reliable motor support', 'Safety stop and control features', 'Residential and commercial applications', 'Clean mechanical fitting'],
             benefits: ['Convenient everyday use', 'Improved controlled access', 'Professional installation', 'Service support when needed'],
-            gallery: ['images/garage door 1.jpg', 'images/garage door 2.jpg', 'images/garage door 3.jpg', 'images/garage door 1.jpg', 'images/garage door5.jpeg']
+            gallery: ['images/garage door 1.jpg', 'images/garage door 2.jpg', 'images/garage door 3.jpg', 'images/garage door4.jpeg', 'images/garage door5.jpeg']
         },
         'access-control': {
             title: 'Access Control Systems',
