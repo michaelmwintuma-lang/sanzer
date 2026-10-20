@@ -6,6 +6,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ServiceModal from './components/ServiceModal';
 import LightboxModal from './components/LightboxModal';
 import ScrollToTop from './components/ScrollToTop';
+import PageMeta from './components/PageMeta';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -38,6 +39,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <PageMeta />
       <div className="sanzer-app">
         <Header />
 

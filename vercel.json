@@ -1,5 +1,10 @@
 {
   "rewrites": [
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/services", "destination": "/services/index.html" },
+    { "source": "/projects", "destination": "/projects/index.html" },
+    { "source": "/why-us", "destination": "/why-us/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
     {
       "source": "/garage-doors-accra",
       "destination": "/garage-doors-accra/index.html"

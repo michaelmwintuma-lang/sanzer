@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Phone,
@@ -13,43 +13,12 @@ import {
 import PageHeader from '../components/PageHeader';
 import ScrollReveal from '../components/ScrollReveal';
 import { companyInfo } from '../data/sanzerData';
-import { garagePage, garageWhatsappUrl, SITE_URL } from '../data/garageDoorsAccra';
-
-// Keep the tab title / description correct when this page is reached by in-app navigation.
-// (Direct visits get them from the prerendered HTML built in vite.config.js.)
-function usePageMeta(title, description, canonical) {
-  useEffect(() => {
-    const prevTitle = document.title;
-    const descTag = document.querySelector('meta[name="description"]');
-    const prevDesc = descTag ? descTag.getAttribute('content') : null;
-    let canonicalTag = document.querySelector('link[rel="canonical"]');
-    const addedCanonical = !canonicalTag;
-    const prevCanonical = canonicalTag ? canonicalTag.getAttribute('href') : null;
-
-    document.title = title;
-    if (descTag) descTag.setAttribute('content', description);
-    if (addedCanonical) {
-      canonicalTag = document.createElement('link');
-      canonicalTag.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalTag);
-    }
-    canonicalTag.setAttribute('href', canonical);
-
-    return () => {
-      document.title = prevTitle;
-      if (descTag && prevDesc !== null) descTag.setAttribute('content', prevDesc);
-      if (addedCanonical) canonicalTag.remove();
-      else canonicalTag.setAttribute('href', prevCanonical);
-    };
-  }, [title, description, canonical]);
-}
+import { garagePage, garageWhatsappUrl } from '../data/garageDoorsAccra';
 
 export default function GarageDoorsAccraPage({ onOpenLightbox }) {
   const [openIndex, setOpenIndex] = useState(0);
   const waUrl = garageWhatsappUrl();
   const mainPhone = companyInfo.phones[0];
-
-  usePageMeta(garagePage.seoTitle, garagePage.metaDescription, `${SITE_URL}${garagePage.path}`);
 
   return (
     <div className="garage-accra-page">

@@ -3,39 +3,30 @@ import react from '@vitejs/plugin-react';
 import fs from 'node:fs';
 import path from 'node:path';
 import { garagePage, garageStructuredData, garageWhatsappUrl, SITE_URL } from './src/data/garageDoorsAccra.js';
+import { pageMeta, DEFAULT_OG_IMAGE } from './src/data/pageMeta.js';
 import { companyInfo } from './src/data/sanzerData.js';
 
 const escapeHtml = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-// Writes dist/garage-doors-accra/index.html with the page's own title, meta tags,
-// structured data and readable content, so Google sees them without running JavaScript.
-// React replaces the #root content as soon as the app loads.
-function prerenderGaragePage() {
-  let outDir;
-  return {
-    name: 'prerender-garage-doors-accra',
-    apply: 'build',
-    configResolved(config) {
-      outDir = path.resolve(config.root, config.build.outDir);
-    },
-    writeBundle() {
-      const pageUrl = `${SITE_URL}${garagePage.path}`;
-      let html = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8');
+// Title, description, canonical link and social-share tags for one page.
+const headFor = (meta) => {
+  const pageUrl = `${SITE_URL}${meta.path}`;
+  return [
+    `<title>${escapeHtml(meta.title)}</title>`,
+    `<meta name="description" content="${escapeHtml(meta.description)}" />`,
+    `<link rel="canonical" href="${pageUrl}" />`,
+    `<meta property="og:type" content="website" />`,
+    `<meta property="og:site_name" content="${escapeHtml(companyInfo.name)}" />`,
+    `<meta property="og:title" content="${escapeHtml(meta.title)}" />`,
+    `<meta property="og:description" content="${escapeHtml(meta.description)}" />`,
+    `<meta property="og:url" content="${pageUrl}" />`,
+    `<meta property="og:image" content="${SITE_URL}${meta.ogImage || DEFAULT_OG_IMAGE}" />`
+  ];
+};
 
-      const head = [
-        `<title>${escapeHtml(garagePage.seoTitle)}</title>`,
-        `<meta name="description" content="${escapeHtml(garagePage.metaDescription)}" />`,
-        `<link rel="canonical" href="${pageUrl}" />`,
-        `<meta property="og:type" content="website" />`,
-        `<meta property="og:title" content="${escapeHtml(garagePage.seoTitle)}" />`,
-        `<meta property="og:description" content="${escapeHtml(garagePage.metaDescription)}" />`,
-        `<meta property="og:url" content="${pageUrl}" />`,
-        `<meta property="og:image" content="${SITE_URL}/images/${encodeURIComponent('garage door5.jpeg')}" />`,
-        `<script type="application/ld+json">${JSON.stringify(garageStructuredData()).replace(/</g, '\\u003c')}</script>`
-      ].join('\n    ');
-
-      const body = `
+// Readable content for the garage landing page, shown to crawlers before JavaScript runs.
+const garageBody = () => `
       <main>
         <h1>${escapeHtml(garagePage.h1)}</h1>
         <p>${escapeHtml(garagePage.heroText)}</p>
@@ -63,21 +54,46 @@ function prerenderGaragePage() {
       </main>
     `;
 
-      html = html
+// Writes dist/<path>/index.html for every page in src/data/pageMeta.js, each with its own
+// title, meta tags and canonical link, so Google sees them without running JavaScript.
+// The garage page also gets structured data and readable content; React replaces the
+// #root content as soon as the app loads.
+function prerenderPages() {
+  let outDir;
+  return {
+    name: 'prerender-page-meta',
+    apply: 'build',
+    configResolved(config) {
+      outDir = path.resolve(config.root, config.build.outDir);
+    },
+    writeBundle() {
+      const template = fs
+        .readFileSync(path.join(outDir, 'index.html'), 'utf8')
         .replace(/<title>[\s\S]*?<\/title>/, '')
-        .replace(/<meta\s+name="description"[\s\S]*?\/>/, '')
-        .replace('</head>', `  ${head}\n  </head>`)
-        .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+        .replace(/<meta\s+name="description"[\s\S]*?\/>/, '');
 
-      const dir = path.join(outDir, garagePage.path.replace(/^\//, ''));
-      fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(path.join(dir, 'index.html'), html);
+      for (const meta of pageMeta) {
+        const isGarage = meta.path === garagePage.path;
+        const head = headFor(meta);
+        if (isGarage) {
+          head.push(
+            `<script type="application/ld+json">${JSON.stringify(garageStructuredData()).replace(/</g, '\\u003c')}</script>`
+          );
+        }
+
+        let html = template.replace('</head>', `  ${head.join('\n    ')}\n  </head>`);
+        if (isGarage) html = html.replace('<div id="root"></div>', `<div id="root">${garageBody()}</div>`);
+
+        const dir = path.join(outDir, meta.path.replace(/^\//, ''));
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'index.html'), html);
+      }
     }
   };
 }
 
 export default defineConfig({
-  plugins: [react(), prerenderGaragePage()],
+  plugins: [react(), prerenderPages()],
   server: {
     port: 5173,
     open: true
