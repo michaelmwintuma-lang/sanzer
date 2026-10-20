@@ -112,9 +112,15 @@ export default function ServicesPage({ onOpenLightbox }) {
                           to={`/contact?service=${encodeURIComponent(svc.title)}`} 
                           className="btn btn-primary"
                         >
-                          <span>Get Free Quote for {svc.title}</span>
+                          <span>Get a Quote for {svc.title}</span>
                           <ArrowRight size={16} />
                         </Link>
+                        {svc.id === 'garage-door-automation' && (
+                          <Link to="/garage-doors-accra" className="btn btn-secondary">
+                            <span>Garage Door Installation in Accra</span>
+                            <ArrowRight size={16} />
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </ScrollReveal>
@@ -167,7 +173,7 @@ export default function ServicesPage({ onOpenLightbox }) {
                 <span className="eyebrow light">Need Custom Specs?</span>
                 <h3>Unsure which motor brand or fencing setup suits your space?</h3>
                 <p>
-                  Our engineers provide free technical consultation and can conduct a site survey anywhere in Ghana.
+                  Our engineers can advise you on the right setup and conduct a site inspection anywhere in Ghana. Please note: site inspections are not free; an inspection fee applies.
                 </p>
               </div>
               <Link to="/contact" className="btn btn-gold">

@@ -68,6 +68,7 @@ export default function Footer() {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Our Company</Link></li>
               <li><Link to="/services">Services & Solutions</Link></li>
+              <li><Link to="/garage-doors-accra">Garage Door Installation Accra</Link></li>
               <li><Link to="/projects">Project Showcase</Link></li>
               <li><Link to="/why-us">Why Choose Us & FAQ</Link></li>
               <li><Link to="/contact">Contact & Inquiry</Link></li>

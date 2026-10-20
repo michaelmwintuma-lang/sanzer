@@ -55,7 +55,7 @@ export default function OfferSection() {
 
             <div className="offer-action-row">
               <Link to="/contact" className="btn btn-primary">
-                Schedule Free Site Inspection <ArrowRight size={15} />
+                Book a Site Inspection (Fee Applies) <ArrowRight size={15} />
               </Link>
             </div>
           </div>

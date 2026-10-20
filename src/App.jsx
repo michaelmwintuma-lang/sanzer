@@ -13,6 +13,7 @@ import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
 import WhyUsPage from './pages/WhyUsPage';
 import ContactPage from './pages/ContactPage';
+import GarageDoorsAccraPage from './pages/GarageDoorsAccraPage';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState(null);
@@ -62,6 +63,10 @@ export default function App() {
             />
             <Route path="/why-us" element={<WhyUsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route
+              path="/garage-doors-accra"
+              element={<GarageDoorsAccraPage onOpenLightbox={handleOpenLightbox} />}
+            />
           </Routes>
         </main>
 

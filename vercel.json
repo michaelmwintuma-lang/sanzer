@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/garage-doors-accra",
+      "destination": "/garage-doors-accra/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

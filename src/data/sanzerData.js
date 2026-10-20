@@ -52,7 +52,7 @@ export const heroSlides = [
     eyebrow: "Sanzer Automation Services - Main Specialty",
     title: "Professional Garage Door Automation - Our Main Service",
     description: "Expert installation of garage door automation systems with multiple reliable motor brands. Smooth opening and closing, remote control, safety features, and professional finishing for residential and commercial garages. We deliver expert solutions with lasting durability.",
-    primaryBtn: { text: "View Garage Solutions", link: "#services" },
+    primaryBtn: { text: "View Garage Solutions", link: "/garage-doors-accra" },
     secondaryBtn: { text: "Get A Quote", link: "#contact" }
   },
   {
@@ -205,7 +205,7 @@ export const servicesData = [
       "Non-lethal high-voltage psychological and physical deterrent",
       "Certified installation complying with security safety codes",
       "Clean aesthetic line tensioning that complements your architecture",
-      "Free initial site inspection and boundary survey"
+      "Site inspection and boundary survey (inspection fee applies)"
     ],
     gallery: [
       "/images/electric fence1.png",
@@ -448,6 +448,10 @@ export const testimonialsData = [
 
 export const faqData = [
   {
+    q: "Are site inspections free?",
+    a: "No. Site inspections are not free; an inspection fee applies. During the visit our technicians measure your site, assess the structure and recommend the right equipment so your quotation is accurate. Call or WhatsApp us to book an inspection and confirm the fee for your location."
+  },
+  {
     q: "Which garage door and gate motor brands do you install?",
     a: "We work with and install all leading international motor brands including Centurion, Nice, Roger Technology, Sommer, BFT, and Ditec. We also supply original spare parts, gear racks, remotes, and backup batteries."
   },
@@ -457,7 +461,7 @@ export const faqData = [
   },
   {
     q: "Do you offer nationwide site inspection and installation across Ghana?",
-    a: "Yes! While our main headquarters is in Kasoa - Ayibe Town (near West Hills Mall), our mobile technical crews travel and install projects across all 16 regions of Ghana including Greater Accra, Ashanti, Western, Central, Eastern, and beyond."
+    a: "Yes! While our main headquarters is in Kasoa - Ayibe Town (near West Hills Mall), our mobile technical crews travel and install projects across all 16 regions of Ghana including Greater Accra, Ashanti, Western, Central, Eastern, and beyond. Please note that site inspections are not free; an inspection fee applies."
   },
   {
     q: "How long does an installation typically take?",

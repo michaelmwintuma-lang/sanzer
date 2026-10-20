@@ -3134,3 +3134,261 @@ h6 {
     height: 48px;
   }
 }
+
+/* -- Garage Door Installation Accra landing page -- */
+.gda-action-strip {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 16px 0;
+}
+
+.gda-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.gda-btn-whatsapp {
+  background: #16a34a;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.gda-btn-whatsapp:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+.gda-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.gda-two-col h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.gda-lead {
+  font-size: 1.04rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 18px;
+}
+
+.gda-subheading {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.gda-gallery-main {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.gda-gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.gda-thumb {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+
+.gda-thumb img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.gda-thumb-zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(11, 26, 40, 0.45);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gda-thumb:hover .gda-thumb-zoom,
+.gda-thumb:focus-visible .gda-thumb-zoom {
+  opacity: 1;
+}
+
+.gda-soft-bg {
+  background: var(--bg-soft);
+}
+
+.gda-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.gda-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.gda-card h3 {
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.gda-card p,
+.gda-step p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.gda-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.gda-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.gda-step h3 {
+  font-size: 1.02rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.gda-step-num {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gda-testimonial {
+  background: var(--bg-white);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.gda-testimonial blockquote {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 12px;
+}
+
+.gda-testimonial figcaption {
+  color: var(--text-muted);
+}
+
+.gda-cta-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.gda-cta-card h3 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+
+.gda-cta-card p {
+  color: rgba(226, 232, 240, 0.9);
+  margin-bottom: 14px;
+}
+
+.gda-contact-list {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.gda-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gda-contact-list a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.gda-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+}
+
+.gda-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .gda-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .gda-action-row .btn,
+  .gda-cta-actions {
+    width: 100%;
+  }
+
+  .gda-cta-card {
+    padding: 24px 18px;
+  }
+}

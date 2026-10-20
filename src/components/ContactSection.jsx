@@ -64,7 +64,7 @@ export default function ContactSection() {
           <span className="eyebrow">Get In Touch</span>
           <h2>Contact Us Today</h2>
           <p className="section-copy">
-            Ready to start your project? Reach out for consultation, quotations, or on-site inspections.
+            Ready to start your project? Reach out for consultation, quotations, or on-site inspections. Please note that site inspections are not free; an inspection fee applies.
           </p>
         </div>
 

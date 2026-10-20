@@ -84,7 +84,7 @@ export default function ContactPage() {
     <div className="contact-page">
       <PageHeader
         title="Contact Sanzer Automated & Security"
-        subtitle="Schedule an on-site inspection, request a quotation, or talk directly with an automation engineer."
+        subtitle="Schedule an on-site inspection (inspection fee applies), request a quotation, or talk directly with an automation engineer."
         breadcrumb={[{ label: 'Contact' }]}
       />
 
